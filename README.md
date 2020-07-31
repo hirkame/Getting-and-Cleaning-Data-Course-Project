@@ -87,8 +87,8 @@ dat <- group_by(dat, activityName, subject)
 newdat <- summarize_all(dat, mean, na.rm=TRUE)
 ```
 
-- Export it as a csv file.
+- Export it as a txt file.
 
 ```
-write.csv(newdat, "tidydata.csv")
+write.table(newdat, "tidydata.txt",  row.name=FALSE)
 ```
