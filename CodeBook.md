@@ -1,8 +1,3 @@
-GitHub contains a code book that modifies and updates the available codebooks
-with the data to indicate all the variables and summaries calculated, along with units, and any other relevant information.
-
-a code book that describes the variables, the data, and any transformations or work that you performed to clean up the data called CodeBook.md
-
 ### 1. Raw Data Info
 
 - Abstract <br/>
@@ -17,19 +12,37 @@ Universitat Politècnica de Catalunya (BarcelonaTech). Vilanova i la Geltrú (08
 activityrecognition '@' smartlab.ws <br/>
 http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
 
+
 ### 2. Summary of the processed data (`tidydata.csv`)
 
-- Variables
+- Data Sets I used
+  - ./train/X_train.txt
+  - ./train/y_train.txt
+  - ./train/subject_train.txt
+  - ./test/X_test.txt
+  - ./test/y_test.txt
+  - ./test/subject_test.txt
+ 
+- Variables and data I used
+<br> I extracted the data which is related to the mean and standard deviation for each measurement, and merged all data sets above into one data set. 
+
+- Variables of the processed data set.
 
 |  Name  |  Description  |
 | ---- | ---- |
 |  activityName  |  Each subject performed six activities (WALKING, WALKING_UPSTAIRS, WALKING_DOWNSTAIRS, SITTING, STANDING, LAYING)  |
 |  subject  | Subjects who participated in training or test data sets. (1-30)  |
-| OTHER VARIABLES| Domain Signal (time or freq) <br> The sensor signals (Accelerometer or Gyroscope) <br> signals (mean or std) <br> 3-axial (X, Y or Z.) |
+| OTHER VARIABLES| Domain Signal (time or freq) <br> The sensor signals {(Body or Gravity) and (Accelerometer or Gyroscope) or Jerk or Magnitude} <br> Signals (mean or std) <br> 3-axial (X, Y or Z.) |
 
-- Values
+- Example of Variables
+  - "timeBodyAccelerometer-mean-X"
+  - "timeBodyGyroscopeJerk-mean-Z"
+  - "freqBodyGyroscope-mean-Y"
+  - "freqBodyBodyGyroscopeMagnitude-std" 
 
-Values in `tidydata.csv` represent the average of each variable for each activity and each subject.
+- Summary
+<br> Values in `tidydata.csv` represent the average of each variable for each activity and each subject.
+
 
 ### 3. Experiment Design
 
