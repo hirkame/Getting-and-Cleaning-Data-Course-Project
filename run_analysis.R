@@ -8,10 +8,8 @@ ytest <- read.table("./data/test/y_test.txt")
 subjecttest <- read.table("./data/test/subject_test.txt")
 # Merge test & train file.
 train <- cbind(xtrain, ytrain, subjecttrain)
-train[, ncol(train)]
 test <- cbind(xtest, ytest, subjecttest)
 dat <- rbind(train, test)
-
 
 # 2
 # Get mean and std columns.
@@ -47,5 +45,4 @@ names(dat) <- sub("Mag", "Magnitude", names(dat))
 library(dplyr)
 dat <- group_by(dat, activityName, subject)
 newdat <- summarize_all(dat, mean, na.rm=TRUE)
-dim(newdat)
 write.csv(newdat, "tidydata.csv")
