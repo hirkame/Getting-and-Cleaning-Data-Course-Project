@@ -30,18 +30,20 @@ levels(dat[,activitycol]) <- as.factor(c("WALKING","WALKING_UPSTAIRS","WALKING_D
 # 4 
 # Assign names of variables.
 names(dat)[1:(length(dat) - 2)] <- grep("mean|std", colname$V2, value = TRUE)
-# Replace t & f in the first character.
-names(dat) <- sub("^t", "time-", names(dat))
-names(dat) <- sub("^f", "freq-", names(dat))
-# Remove Brackets.
-names(dat) <- sub("\\(\\)", "", names(dat))
 names(dat)[activitycol] <- "activityName"
 names(dat)[length(dat)] <- "subject"
+# Replace t & f in the first character.
+names(dat) <- sub("^t", "time", names(dat))
+names(dat) <- sub("^f", "freq", names(dat))
+# Remove Brackets.
+names(dat) <- sub("\\(\\)", "", names(dat))
+names(dat) <- sub("Acc", "Accelerometer", names(dat))
+names(dat) <- sub("Gyro", "Gyroscope", names(dat))
+names(dat) <- sub("Mag", "Magnitude", names(dat))
 
  
 # 5 Create a new data frame 
 # with the average of each variable for each activity and each subject.
-str(dat)
 library(dplyr)
 dat <- group_by(dat, activityName, subject)
 newdat <- summarize_all(dat, mean, na.rm=TRUE)
